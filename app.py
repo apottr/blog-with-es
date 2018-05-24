@@ -3,8 +3,9 @@ import requests,time,json,os
 
 app = Flask(__name__)
 
-ESHOST = os.environ["ESHOST"]
-esurl = lambda x: f"http://{ESHOST}{x}"
+ESHOST = os.environ["ES_SERVICE_SERVICE_HOST"]
+ESPORT = os.environ["ES_SERVICE_SERVICE_PORT"]
+esurl = lambda x: f"http://{ESHOST}:{ESPORT}{x}"
 
 def get_all_posts():
     r = requests.get(esurl("/posts/_search"))
