@@ -1,0 +1,19 @@
+<html>
+    <body>
+        <table>
+            <thead>
+                <th>Subject Line</th>
+                <th>Body Text</th>
+            </thead>
+            <tbody>
+                {% for item in data %}
+                    <tr>
+                        <td><a href="/post/{{ item._id }}">{{ item._source.subject }}</a></td>
+                        <td>{{ item._source.body | truncate(100) }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="/add">Add New Post</a>
+    </body>
+</html>
