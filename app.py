@@ -1,9 +1,9 @@
 from flask import Flask,render_template,request,redirect
-import requests,time,json
+import requests,time,json,os
 
 app = Flask(__name__)
 
-ESHOST = "localhost:8001/api/v1/namespaces/default/services/es-service/proxy"
+ESHOST = os.environ["ESHOST"]
 esurl = lambda x: f"http://{ESHOST}{x}"
 
 def get_all_posts():
